@@ -10,6 +10,7 @@ django-filter==21.1
 django-heroku==0.3.1
 djangorestframework==3.13.1
 drf-yasg==1.20.0
+engineering-notation==0.6.0
 gunicorn==20.1.0
 idna==3.3
 inflection==0.5.1
@@ -27,6 +28,7 @@ requests==2.27.1
 ruamel.yaml==0.17.20
 ruamel.yaml.clib==0.2.6
 sqlparse==0.4.2
+tk-tools==0.14.0
 tzdata==2021.5
 uritemplate==4.1.1
 urllib3==1.26.8
