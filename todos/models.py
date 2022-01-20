@@ -1,4 +1,3 @@
-from tkinter import CASCADE
 from django.db import models
 from authentication.models import User
 from helpers.models import TrackingModel
