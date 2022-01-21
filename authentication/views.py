@@ -3,7 +3,10 @@ from rest_framework.generics import GenericAPIView
 from rest_framework import response,status, permissions
 from authentication import serializers
 import authentication
-from authentication.serializers import RegisterSerializers, LoginSerializer
+from authentication.serializers import RegisterSerializer, LoginSerializer
+
+
+
 
 #utilization of class based views; program inherits a lot of functionality that is available in django
 #inheriting GenericAPIView enables us to test all the http requests the user makes, individually
@@ -14,7 +17,7 @@ class RegisterAPIView(GenericAPIView):
     authentication_classes= []
 
     #when it's a class based view, a serializer class is set up
-    serializer_class= RegisterSerializers
+    serializer_class= RegisterSerializer
 
     #user submits form on the front end and the data is sent to the server
     def post(self,request):
@@ -51,8 +54,9 @@ class LoginAPIView(GenericAPIView):
 class AuthUserAPIView(GenericAPIView):
     #the user should have a token to access this view
     permission_classes= (permissions.IsAuthenticated,)
+    serializer_class= RegisterSerializer
 
     def get(self,request):
         user= request.user
-        serializer= RegisterSerializers(user)
+        serializer= RegisterSerializer(user)
         return response.Response({'user':serializer.data})
